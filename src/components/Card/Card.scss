@@ -1,0 +1,12 @@
+.Card{
+    height: 20em;
+    width: 15em;
+    border: 1px solid black;
+    &__Cuisine, &__Dish{
+        font-size: 2em;
+    }
+    &__Image{
+        height: 10em;
+        width: 15em;
+    }
+}
