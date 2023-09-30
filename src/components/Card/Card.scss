@@ -1,12 +1,65 @@
-.Card{
-    height: 20em;
-    width: 15em;
-    border: 1px solid black;
-    &__Cuisine, &__Dish{
-        font-size: 2em;
+.Card {
+  position: relative;
+  width: 17em;
+  height: 350px;
+  background: #000;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.22);
+  display: flex;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+  border-radius: 10px;
+  margin-bottom: 50px;
+
+  &:hover {
+    width: 17em;
+    .Card__Intro {
+      height: 320px;
+      border-radius: 0em 0em 0em 0em;
+      width: 17em;
+      background: rgb(27 27 27 / 86%);
+      &__Description {
+        opacity: 1;
+        visibility: visible;
+      }
     }
-    &__Image{
-        height: 10em;
-        width: 15em;
+    .Card__Image {
+      transform: scale(1.1) rotate(-3deg);
     }
+  }
+
+  &__Image {
+    border-radius: 3px;
+    transition: 0.5s;
+    width: 20em;
+  }
+  &__Intro {
+    background: rgba(27,27,27,.86);
+    bottom: 0em;
+    color: #fff;
+    height: 80px;
+    position: absolute;
+    border-radius: 0em 2em 0em 0em;
+    transition: .5s;
+    &__Heading {
+      margin: 10px;
+      font-size: 1.5em;
+    }
+    &__Description {
+      font-size: 0.8em;
+      margin: 20px;
+      visibility: hidden;
+      opacity: 0;
+    }
+    &__Icons {
+        display: flex;
+        justify-content: center;
+        background-color: #f5deb380;
+        &__Icon {
+        padding: 1em;
+        height: 5em;
+        width: 3em;
+        cursor: pointer;
+      }
+    }
+  }
 }

@@ -15,9 +15,6 @@ export default function Header() {
           <a href="#">contact</a>
         </nav>
       </div>
-      <div class="banner-area">
-        <h2>this is banner</h2>
-      </div>
     </header>
   );
 }
