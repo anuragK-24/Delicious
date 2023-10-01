@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 export default function Dish() {
   const [dishes, setDishes] = useState([]);
-
   useEffect(() => {
     const fetchDishes = async () => {
       const data = fetch("https://foodwiki.onrender.com/dishes/get");
@@ -23,8 +22,7 @@ export default function Dish() {
       <Link to="/dish/add"><img className="Dish__Add" src={addDish} alt="" /></Link>
       
       <div class="Dish__Wrapper">
-        {dishes &&
-          dishes.length &&
+        {dishes.length!==0 ? (
           dishes.map((a, key) => {
             return (
               <Card
@@ -36,7 +34,9 @@ export default function Dish() {
                 dishId={a._id}
               />
             );
-          })}
+          })) : (
+            <div className="Dish__Wrapper__NoDish">No Dishes</div>
+          )}
       </div>
     </div>
   );
