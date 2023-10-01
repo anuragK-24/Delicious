@@ -1,8 +1,21 @@
+@import "../../style/variable.scss";
 .LabelledInput {
   padding: 1em 3em 0em 3em;
   &__Label {
     padding: 0.4em;
     font-weight: 600;
     font-style: italic;
+  }
+  &__Textarea {
+    height: 30em;
+    width: 50em;
+  }
+}
+@media #{$media-mobile} {
+  .LabelledInput {
+    &__Textarea {
+      height: 20em;
+      width: 18em;
+    }
   }
 }

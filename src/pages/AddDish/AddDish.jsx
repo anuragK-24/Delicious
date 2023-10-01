@@ -71,15 +71,15 @@ export default function AddDish() {
           />
 
           <LabelledInput
+            label={"Enter the cuisine"}
+            value={cuisine}
+            on_change={(e) => setCuisine(e.target.value)}
+          />
+          <LabelledInput
             label={"Enter the Recipe"}
             value={recipe}
             num_row={"4"}
             on_change={(e) => setRecipe(e.target.value)}
-          />
-          <LabelledInput
-            label={"Enter the cuisine"}
-            value={cuisine}
-            on_change={(e) => setCuisine(e.target.value)}
           />
           <button
             className="AddDish__Wrapper__Card__Button"
