@@ -30,6 +30,7 @@ export default function AddDish() {
         dishImage: photo,
         cuisine: cuisineID,
       });
+      alert(`${title} Added Successfully which is in ${cuisine}`);
     } catch (err) {
       console.log(err);
     }
