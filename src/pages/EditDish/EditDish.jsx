@@ -25,21 +25,28 @@ export default function EditDish() {
     fetchDish();
   }, []);
   const handleUpdate = async () => {
+    if (title.length === 0) {
+      alert("Please enter a valid title");
+      return;
+    } else if (recipe.length === 0) {
+      alert("Please enter a valid recipe");
+      return;
+    }
     try {
       await axios.patch(`https://foodwiki.onrender.com/dishes/update/${path}`, {
         title,
         recipe,
-        photo,
+        dishImage: photo,
       });
+      alert("Dish Updated Successfully");
     } catch (err) {
       console.log(err);
     }
   };
   return (
     <div className="EditDish">
-    <h2 className="EditDish__Heading">Edit Dish</h2>
-    <div className="EditDish__Wrapper">
-
+      <h2 className="EditDish__Heading">Edit Dish</h2>
+      <div className="EditDish__Wrapper">
         <div class="EditDish__Wrapper__Card">
           <LabelledInput
             label={"Enter the Dish"}
@@ -66,8 +73,8 @@ export default function EditDish() {
           >
             UPDATE
           </button>
-        
+        </div>
       </div>
     </div>
-  </div>);
+  );
 }

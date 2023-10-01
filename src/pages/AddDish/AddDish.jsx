@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
 import "./AddDish.scss";
 import LabelledInput from "../../components/LabelledInput/LabelledInput";
@@ -10,14 +9,26 @@ export default function AddDish() {
   const [recipe, setRecipe] = useState("");
   const [cuisine, setCuisine] = useState("");
   const [photo, setPhoto] = useState("");
-  const location = useLocation();
-  const path = location.pathname.split("/")[2];
+  const [cuisineData, setCuisineData] = useState([]);
+
   const handleCreate = async () => {
+    if (cuisineID.length === 0) {
+      alert("Please enter a valid cuisine");
+      return;
+    }
+    if (title.length === 0) {
+      alert("Please enter a valid title");
+      return;
+    } else if (recipe.length === 0) {
+      alert("Please enter a valid recipe");
+      return;
+    }
     try {
       await axios.post(`https://foodwiki.onrender.com/dishes/create`, {
         title,
         recipe,
-        photo,
+        dishImage: photo,
+        cuisine: cuisineID,
       });
     } catch (err) {
       console.log(err);
@@ -25,19 +36,26 @@ export default function AddDish() {
   };
   const handleCuisine = async () => {
     try {
-      await axios.post(`https://foodwiki.onrender.com/cuisines/get/`, {
-        name,
-      });
+      const a = await axios.get(`https://foodwiki.onrender.com/cuisines/get/`);
+      const res = await a;
+      const data = await res.data;
+      setCuisineData(data["cuisines"]);
     } catch (err) {
       console.log(err);
     }
   };
-
+  useEffect(() => {
+    handleCuisine();
+  }, [cuisine]);
+  console.log(cuisineData);
+  // console.log(typeof cuisineData)
+  const filteredCuisine = cuisineData.filter((c) => c.name === cuisine);
+  const cuisineID = filteredCuisine.length > 0 ? filteredCuisine[0]._id : [];
+  console.log(cuisineID);
   return (
     <div className="EditDish">
-    <h2 className="EditDish__Heading">Add Dish</h2>
-    <div className="EditDish__Wrapper">
-
+      <h2 className="EditDish__Heading">Add Dish</h2>
+      <div className="EditDish__Wrapper">
         <div class="EditDish__Wrapper__Card">
           <LabelledInput
             label={"Enter the Dish"}
@@ -60,7 +78,6 @@ export default function AddDish() {
           <LabelledInput
             label={"Enter the cuisine"}
             value={cuisine}
-            num_row={"4"}
             on_change={(e) => setCuisine(e.target.value)}
           />
           <button
@@ -69,8 +86,8 @@ export default function AddDish() {
           >
             ADD
           </button>
-        
+        </div>
       </div>
     </div>
-  </div>);
+  );
 }
