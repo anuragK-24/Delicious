@@ -4,6 +4,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import EditDish from "./pages/EditDish/EditDish";
 import AddDish from "./pages/AddDish/AddDish";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
 
       <Route path="/post/:postID" element={<Single/>}/> */}
       </Routes>
-      {/* <Footer/> */}
+      <Footer/>
     </Router>
   );
 }

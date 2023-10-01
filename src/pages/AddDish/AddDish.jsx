@@ -54,10 +54,10 @@ export default function AddDish() {
   const cuisineID = filteredCuisine.length > 0 ? filteredCuisine[0]._id : [];
   console.log(cuisineID);
   return (
-    <div className="EditDish">
-      <h2 className="EditDish__Heading">Add Dish</h2>
-      <div className="EditDish__Wrapper">
-        <div class="EditDish__Wrapper__Card">
+    <div className="AddDish">
+      <h2 className="AddDish__Heading">Add Dish</h2>
+      <div className="AddDish__Wrapper">
+        <div class="AddDish__Wrapper__Card">
           <LabelledInput
             label={"Enter the Dish"}
             value={title}
@@ -82,7 +82,7 @@ export default function AddDish() {
             on_change={(e) => setCuisine(e.target.value)}
           />
           <button
-            className="EditDish__Wrapper__Card__Button"
+            className="AddDish__Wrapper__Card__Button"
             onClick={handleCreate}
           >
             ADD
