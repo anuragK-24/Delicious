@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Dish.scss";
 import Card from "../../components/Card/Card";
+import addDish from "../../Icons/addDish.svg";
+import { Link } from "react-router-dom";
 
 export default function Dish() {
   const [dishes, setDishes] = useState([]);
@@ -14,11 +16,12 @@ export default function Dish() {
     };
     fetchDishes();
   }, []);
-  console.log(dishes);
 
   return (
     <div className="Dish">
       <div className="Dish__Header">Dishes</div>
+      <Link to="/dish/add"><img className="Dish__Add" src={addDish} alt="" /></Link>
+      
       <div class="Dish__Wrapper">
         {dishes &&
           dishes.length &&

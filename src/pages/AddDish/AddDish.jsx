@@ -2,31 +2,19 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import "./EditDish.scss";
+import "./AddDish.scss";
 import LabelledInput from "../../components/LabelledInput/LabelledInput";
 
-export default function EditDish() {
+export default function AddDish() {
   const [title, setTitle] = useState("");
   const [recipe, setRecipe] = useState("");
+  const [cuisine, setCuisine] = useState("");
   const [photo, setPhoto] = useState("");
   const location = useLocation();
   const path = location.pathname.split("/")[2];
-  useEffect(() => {
-    const fetchDish = async () => {
-      const data = axios.get(
-        `https://foodwiki.onrender.com/dishes/get/${path}`
-      );
-      const res = await data;
-      const dishData = await res.data;
-      setTitle(dishData["dish"].title);
-      setRecipe(dishData["dish"].recipe);
-      setPhoto(dishData["dish"].dishImage);
-    };
-    fetchDish();
-  }, []);
-  const handleUpdate = async () => {
+  const handleCreate = async () => {
     try {
-      await axios.patch(`https://foodwiki.onrender.com/dishes/update/${path}`, {
+      await axios.post(`https://foodwiki.onrender.com/dishes/create`, {
         title,
         recipe,
         photo,
@@ -35,9 +23,19 @@ export default function EditDish() {
       console.log(err);
     }
   };
+  const handleCuisine = async () => {
+    try {
+      await axios.post(`https://foodwiki.onrender.com/cuisines/get/`, {
+        name,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="EditDish">
-    <h2 className="EditDish__Heading">Edit Dish</h2>
+    <h2 className="EditDish__Heading">Add Dish</h2>
     <div className="EditDish__Wrapper">
 
         <div class="EditDish__Wrapper__Card">
@@ -59,12 +57,17 @@ export default function EditDish() {
             num_row={"4"}
             on_change={(e) => setRecipe(e.target.value)}
           />
-
+          <LabelledInput
+            label={"Enter the cuisine"}
+            value={cuisine}
+            num_row={"4"}
+            on_change={(e) => setCuisine(e.target.value)}
+          />
           <button
             className="EditDish__Wrapper__Card__Button"
-            onClick={handleUpdate}
+            onClick={handleCreate}
           >
-            UPDATE
+            ADD
           </button>
         
       </div>

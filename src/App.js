@@ -3,6 +3,7 @@ import Dish from "./pages/Dish/Dish";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import EditDish from "./pages/EditDish/EditDish";
+import AddDish from "./pages/AddDish/AddDish";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path="/dishes" element={<Dish />} />
 
         <Route path="/edit/:dishId" element={<EditDish />} />
+
+        <Route path="/dish/add" element={<AddDish />} />
 
         {/* <Route path="/write" element={user ? <Write/> : <Register/> }/>
 
