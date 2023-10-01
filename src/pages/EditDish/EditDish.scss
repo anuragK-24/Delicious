@@ -1,6 +1,8 @@
 @import "../../style/variable.scss";
 .EditDish {
   margin-bottom: 4em;
+  text-align: center;
+  
   &__Heading {
     text-align: center;
     padding-bottom: 1em;
@@ -13,20 +15,32 @@
     &__Card {
       border-radius: 1em;
       padding: 0.5em;
-      border: 1px solid black;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px #ccc;
       background-color: antiquewhite;
       &__Button {
-        margin: 1em;
-        width: -webkit-fill-available;
-        height: 3em;
-        background: aquamarine;
+        background-color: #c0b829;
         border: none;
-        border-radius: 2em;
+        color: white;
+        padding: 0.8em 1.5em;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1.2em;
+        font-weight: 600;
+        border-radius: 5px;
         cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+        margin-top: 1em;
+        &:hover {
+          background-color: #827e32;
+        }
       }
     }
   }
 }
+
 
 // @media #{$media-mobile} {
 //   .EditDish {
