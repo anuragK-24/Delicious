@@ -6,13 +6,13 @@ export default function Dish() {
   const [dishes, setDishes] = useState([]);
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchDishes = async () => {
       const data = fetch("https://foodwiki.onrender.com/dishes/get");
       const res = await data;
       const dishData = await res.json();
       setDishes(dishData["dishes"]);
     };
-    fetchPosts();
+    fetchDishes();
   }, []);
   console.log(dishes);
 
@@ -25,7 +25,7 @@ export default function Dish() {
           dishes.map((a, key) => {
             return (
               <Card
-                description={a.description}
+                recipe={a.recipe}
                 imageUrl={a.dishImage}
                 key={key}
                 deployLink={a.deployLink}

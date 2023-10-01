@@ -36,7 +36,7 @@
     background: rgba(27,27,27,.86);
     bottom: 0em;
     color: #fff;
-    height: 80px;
+    height: 3.5em;
     position: absolute;
     border-radius: 0em 2em 0em 0em;
     transition: .5s;
@@ -53,11 +53,11 @@
     &__Icons {
         display: flex;
         justify-content: center;
-        background-color: #f5deb380;
+        background-color: white;
         &__Icon {
-        padding: 1em;
-        height: 5em;
-        width: 3em;
+        padding: 0.5em;
+        height: 2em;
+        width: 2em;
         cursor: pointer;
       }
     }
