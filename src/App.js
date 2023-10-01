@@ -14,7 +14,7 @@ function App() {
         {/* <Route path="/" element={<Home/>}/> */}
 
         {/* <Route path="/register" element={user ? <Home/> :<Register/>}/> */}
-        <Route path="/dishes" element={<Dish />} />
+        <Route path="/" element={<Dish />} />
 
         <Route path="/edit/:dishId" element={<EditDish />} />
 
