@@ -12,14 +12,14 @@ export default function AddDish() {
   const [cuisineData, setCuisineData] = useState([]);
 
   const handleCreate = async () => {
-    if (cuisineID.length === 0) {
+    if (cuisineID && cuisineID.length === 0) {
       alert("Please enter a valid cuisine");
       return;
     }
-    if (title.length === 0) {
+    if ( title && title.length === 0) {
       alert("Please enter a valid title");
       return;
-    } else if (recipe.length === 0) {
+    } else if (recipe && recipe.length === 0) {
       alert("Please enter a valid recipe");
       return;
     }
@@ -61,22 +61,26 @@ export default function AddDish() {
           <LabelledInput
             label={"Enter the Dish"}
             value={title}
+            placeholder={"Dish..."}
             on_change={(e) => setTitle(e.target.value)}
           />
 
           <LabelledInput
             label={"Enter the Image Link"}
+            placeholder={"Image Link..."}
             value={photo}
             on_change={(e) => setPhoto(e.target.value)}
           />
 
           <LabelledInput
             label={"Enter the cuisine"}
+            placeholder={"Cuisine..."}
             value={cuisine}
             on_change={(e) => setCuisine(e.target.value)}
           />
           <LabelledInput
             label={"Enter the Recipe"}
+            placeholder={"Recipe..."}
             value={recipe}
             num_row={"4"}
             on_change={(e) => setRecipe(e.target.value)}

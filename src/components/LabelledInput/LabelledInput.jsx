@@ -1,6 +1,6 @@
 import React from "react";
 import "./LabelledInput.scss";
-export default function LabelledInput({ label, value, on_change, num_row }) {
+export default function LabelledInput({ label, value, on_change, num_row, placeholder }) {
   return (
     <div className={`LabelledInput`}>
       <div className="LabelledInput__Label">{label} </div>
@@ -10,6 +10,7 @@ export default function LabelledInput({ label, value, on_change, num_row }) {
           name=""
           id=""
           value={value}
+          placeholder={placeholder}
           onChange={on_change}
           rows={num_row}
           cols="30"
@@ -18,6 +19,7 @@ export default function LabelledInput({ label, value, on_change, num_row }) {
         <input
           className="LabelledInput__Input"
           value={value}
+          placeholder={placeholder}
           onChange={on_change}
           type="text"
         />

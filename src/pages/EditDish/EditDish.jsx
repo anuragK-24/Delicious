@@ -25,10 +25,10 @@ export default function EditDish() {
     fetchDish();
   }, []);
   const handleUpdate = async () => {
-    if (title.length === 0) {
+    if (title && title.length === 0) {
       alert("Please enter a valid title");
       return;
-    } else if (recipe.length === 0) {
+    } else if ( recipe && recipe.length === 0) {
       alert("Please enter a valid recipe");
       return;
     }
