@@ -21,6 +21,9 @@
         opacity: 1;
         visibility: visible;
       }
+      &__Icons {
+        visibility: visible;
+      }
     }
     .Card__Image {
       transform: scale(1.1) rotate(-3deg);
@@ -33,13 +36,13 @@
     width: 20em;
   }
   &__Intro {
-    background: rgba(27,27,27,.86);
+    background: rgba(27, 27, 27, 0.86);
     bottom: 0em;
     color: #fff;
     height: 3.5em;
     position: absolute;
     border-radius: 0em 2em 0em 0em;
-    transition: .5s;
+    transition: 0.5s;
     &__Heading {
       margin: 10px;
       font-size: 1.5em;
@@ -51,10 +54,11 @@
       opacity: 0;
     }
     &__Icons {
-        display: flex;
-        justify-content: center;
-        background-color: white;
-        &__Icon {
+      visibility: hidden;
+      display: flex;
+      justify-content: center;
+      background-color: white;
+      &__Icon {
         padding: 0.5em;
         height: 2em;
         width: 2em;
