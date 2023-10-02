@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import axios from "axios";
 import "./AddDish.scss";
@@ -49,7 +49,13 @@ export default function AddDish() {
     handleCuisine();
   }, [cuisine]);
   console.log(cuisineData);
-  // console.log(typeof cuisineData)
+
+  // for focusing the input field
+  const inputRef= useRef(null);
+  useEffect(() => {
+    inputRef.current.focus(); 
+  } , []) 
+
   const filteredCuisine = cuisineData.filter((c) => c.name === cuisine);
   const cuisineID = filteredCuisine.length > 0 ? filteredCuisine[0]._id : [];
   console.log(cuisineID);
@@ -59,6 +65,7 @@ export default function AddDish() {
       <div className="AddDish__Wrapper">
         <div class="AddDish__Wrapper__Card">
           <LabelledInput
+            passedRef = {inputRef}
             label={"Enter the Dish"}
             value={title}
             placeholder={"Dish..."}

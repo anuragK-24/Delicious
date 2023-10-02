@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
@@ -43,6 +43,11 @@ export default function EditDish() {
       console.log(err);
     }
   };
+  // for focusing the input field
+  const inputRef= useRef(null);
+  useEffect(() => {
+    inputRef.current.focus(); 
+  } , []) 
   return (
     <div className="EditDish">
       <h2 className="EditDish__Heading">Edit Dish</h2>
@@ -62,6 +67,7 @@ export default function EditDish() {
 
           <LabelledInput
             label={"Enter the Recipe"}
+            passedRef={inputRef}
             value={recipe}
             num_row={"4"}
             on_change={(e) => setRecipe(e.target.value)}
