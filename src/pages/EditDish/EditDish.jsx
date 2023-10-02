@@ -43,7 +43,7 @@ export default function EditDish() {
       console.log(err);
     }
   };
-  // for focusing the input field
+  // for focusing the input field data
   const inputRef= useRef(null);
   useEffect(() => {
     inputRef.current.focus(); 
