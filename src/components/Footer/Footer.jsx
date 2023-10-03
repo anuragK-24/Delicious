@@ -34,22 +34,22 @@ function Footer() {
           <h3>Follow Me</h3>
           <ul>
             <li>
-              <a href="#">
+              <a href="https://github.com/anuragK-24">
                 <img src={github} alt="Github" />
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://anuragk24.hashnode.dev/">
               <img src={hashnode} alt="Hashnode" />
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://www.linkedin.com/in/anurag-kumar-4490ba1a6/">
                 <img src={linkedin} alt="Linkedin" />
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://twitter.com/AnuragS41695054">
                 <img src={twitter} alt="Twitter" />
               </a>
             </li>
