@@ -9,7 +9,7 @@
   transition: 0.5s ease-in-out;
   border-radius: 10px;
   margin-bottom: 50px;
-
+  margin: 2em;
   &:hover {
     width: 17em;
     .Card__Intro {
@@ -18,8 +18,13 @@
       width: 17em;
       background: rgb(27 27 27 / 86%);
       &__Description {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
         opacity: 1;
         visibility: visible;
+        
       }
       &__Icons {
         visibility: visible;
@@ -49,7 +54,7 @@
     }
     &__Description {
       font-size: 0.8em;
-      margin: 20px;
+      padding: 20px;
       visibility: hidden;
       opacity: 0;
     }

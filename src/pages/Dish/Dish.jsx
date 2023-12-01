@@ -22,9 +22,10 @@ export default function Dish() {
   return (
     <div className="Dish">
       <div className="Dish__Header">Dishes</div>
-      <Link to="/dish/add">
-        <img className="Dish__Add" src={addDish} alt="" />
+      <Link className="Dish__Add" to="/dish/add">
+        <img style={{height:"3em"}}  src={addDish} alt="" />
       </Link>
+        <span className="Dish__Subhead" >Add new Dish here </span>
       <div class="Dish__Wrapper">
         {!isResolved ? (
           <img className="Dish__Loader" src={cookingLoader} alt="" />
